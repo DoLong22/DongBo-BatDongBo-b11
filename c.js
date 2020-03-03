@@ -29,8 +29,28 @@ function chia(a, b,cb) {
         cb(err, body);
     })
 }
-chia(4, 5, (err,kq)=>{
-    if(err) return console.log(err.message);
-    console.log('Ket qua la: ' + kq);
-})
+ 
 
+// chia(4, 5, (err,kq)=>{
+//     if(err) return console.log(err.message);
+//      console.log('Ket qua la: ' + typeof kq);
+//  })
+
+//(a+b)*h/2
+function tinhDienTich(a,b,h,cb){
+    cong(a, b, (err0,tong)=>{
+        if(err0) return cb(err)
+        nhan(+tong, h, (err1,tich)=>{          
+            if(err1) return cb(err1)
+            chia(+tich, 2, (err2, kq2)=>{
+                if(err2) return cb(err2)
+                return cb(null,kq2);
+            })
+        })
+    })
+}
+
+tinhDienTich(4,5,6,(err,kq) =>{
+    if(err) return console.log(err.message);
+    console.log("Dien tich hinh thang bang " + kq);
+});
