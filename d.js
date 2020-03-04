@@ -1,0 +1,1 @@
+const a = new PhepTinh('1',4,"CONG")
